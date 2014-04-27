@@ -3,6 +3,7 @@
 
 require 'active_support/inflector'
 
+<<<<<<< HEAD
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' },
                :rspec_env    => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
@@ -16,6 +17,8 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' },
   watch(%r{features/support/}) { :cucumber }
 end
 
+=======
+>>>>>>> 243ca3f34b2fc4cfee8e2ec1ad61e710282e6b85
 guard 'rspec' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
