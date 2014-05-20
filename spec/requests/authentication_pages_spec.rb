@@ -157,18 +157,20 @@ describe "Authentication" do
         specify { expect(response).to redirect_to(root_url) }
       end
     end
-  end
 
-  describe "as admin user" do
-    let(:admin) { FactoryGirl.create(:admin) }
-    before { sign_in admin, no_capybara: true }
+    describe "as admin user" do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before { sign_in admin, no_capybara: true }
 
-    describe "should not be able to delete themselves via #destroy action" do
-      specify do
-        expect { delete user_path(admin) }.not_to change(User, :count).by(-1)
+      describe "should not be able to delete themselves via #destroy action" do
+        specify do
+          expect { delete user_path(admin) }.not_to change(User, :count).by(-1)
+        end
       end
     end
   end
+
+  
 
 
 
