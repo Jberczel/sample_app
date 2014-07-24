@@ -1,11 +1,24 @@
 function updateCountdown() {
+
+    var $countdown = $('.countdown');
+
     // 140 is the max message length
-    var remaining = 140 - jQuery('#micropost_content').val().length;
-    jQuery('.countdown').text(remaining + ' characters remaining');
+    var remaining = 140 - $('#micropost_content').val().length;
+
+    $countdown.text(remaining + ' characters remaining');
+
+    var color = 'grey';
+    if (remaining < 21) { color = 'black'; }
+    if (remaining < 11) { color = 'red'; }
+    $countdown.css( { color: color} );
+
 }
 
-jQuery(document).ready(function($) {
+$(document).ready(function($) {
     updateCountdown();
-    $('#micropost_content').change(updateCountdown);
-    $('#micropost_content').keyup(updateCountdown);
+    $micropost_content = $('#micropost_content');
+
+    $micropost_content.change(updateCountdown);
+    $micropost_content.keyup(updateCountdown);
+    $micropost_content.keydown(updateCountdown);
 });
